@@ -47,7 +47,18 @@
                             source: 'landPrice',
                             type: 'circle',
                             minzoom: 5,
-                            // paint 
+                            paint: {
+                                'circle-color': [
+                                    'interpolate',
+                                    ['linear'],
+                                    ['get', 'L02_001'],
+                                    '000', '#f00', // 住宅地は赤
+                                    '003', '#f00', // 住宅見込地も赤
+                                    '005', '#00f', // 商業地は青
+                                    '009', 'orange', // 工業地はオレンジ
+                                    '020', '#0f0', // 林地は緑
+                                ],
+                            }, 
                         },
                     ],
                 },
