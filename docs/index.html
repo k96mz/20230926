@@ -9,12 +9,12 @@
         >
     </head>
     <body>
-        <div id="map" style="height: 80vh"></div>
+        <div id="map" style="height: 90vh"></div>
         <script>
             const map = new maplibregl.Map({
                 container: 'map',
                 center: [139.7650449, 35.6713953],
-                zoom:10,
+                zoom:11,
                 style: {
                     version: 8,
                     sources: {
@@ -28,13 +28,26 @@
                             attribution:
                                 '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                         },
+                        landPrice: {
+                            type: 'geojson',
+                            data: './L02-23.geojson',
+                            attribution : 
+                            '<a href="https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L02-v3_1.html">国土数値情報 - 都道府県地価調査データ</a>',
+                        },
                     },
                     layers: [
                         {
                             id: 'osm-layer',
                             source: 'osm',
                             type: 'raster',
-                            minzoom: 10,
+                            minzoom: 5,
+                        },
+                        {
+                            id: 'landPrice-circle-layer',
+                            source: 'landPrice',
+                            type: 'circle',
+                            minzoom: 5,
+                            // paint 
                         },
                     ],
                 },
