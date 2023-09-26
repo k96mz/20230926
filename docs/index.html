@@ -9,9 +9,36 @@
         >
     </head>
     <body>
-        <h1>hello</h1>
+        <div id="map" style="height: 80vh"></div>
         <script>
-            
+            const map = new maplibregl.Map({
+                container: 'map',
+                center: [139.7650449, 35.6713953],
+                zoom:10,
+                style: {
+                    version: 8,
+                    sources: {
+                        osm: {
+                            type: 'raster',
+                            tiles: [
+                                'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            ],
+                            tileSize: 256,
+                            maxzoom: 18,
+                            attribution:
+                                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        },
+                    },
+                    layers: [
+                        {
+                            id: 'osm-layer',
+                            source: 'osm',
+                            type: 'raster',
+                            minzoom: 10,
+                        },
+                    ],
+                },
+            });
 
         </script>
     </body>
