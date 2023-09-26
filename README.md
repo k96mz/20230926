@@ -1,2 +1,2 @@
-# 20230926landPrice
+# 20230926
 Showing land price in Japan
